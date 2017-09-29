@@ -77,5 +77,7 @@ class Utils{
             RNNeteaseIm.setupWebViewUserAgent();
         }
     }
-module.exports = new Utils();
+}
+
+export default new Utils();
 

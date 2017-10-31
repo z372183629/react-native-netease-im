@@ -90,7 +90,7 @@ NSMutableArray *_myTeams;
     if ([type isEqualToString:@"1"]){
         option.type = NIMTeamTypeAdvanced;
     }
-    [[NIMSDK sharedSDK].teamManager createTeam:option users:accounts completion:^(NSError *error, NSString *teamId) {
+    [[NIMSDK sharedSDK].teamManager createTeam:option users:accounts completion:^(NSError *error, NSString *teamId, NSArray<NSString*>* data) {
         if (!error) {
             NSDictionary *dic = @{@"teamId":teamId};
             succ(dic);
@@ -213,7 +213,7 @@ NSMutableArray *_myTeams;
                 [teamDic setObject:[NSString stringWithFormat:@"%ld", team.memberNumber ] forKey:@"memberCount"];
                 [teamDic setObject:[NSString stringWithFormat:@"%ld",team.level] forKey:@"memberLimit"];
                 [teamDic setObject:[NSString stringWithFormat:@"%f", team.createTime ] forKey:@"createTime"];
-                [teamDic setObject:[NSString stringWithFormat:@"%d", team.notifyForNewMsg ] forKey:@"mute"];
+                [teamDic setObject:[NSString stringWithFormat:@"%d", team.notifyStateForNewMsg ] forKey:@"mute"];
                 [teamDic setObject:[NSString stringWithFormat:@"%ld",team.joinMode] forKey:@"verifyType"];
                 [teamDic setObject:[NSString stringWithFormat:@"%ld",team.beInviteMode] forKey:@"teamBeInviteMode"];
                 NSArray *keys = [teamDic allKeys];
@@ -271,7 +271,7 @@ NSMutableArray *_myTeams;
             [teamDic setObject:[NSString stringWithFormat:@"%ld", team.memberNumber ] forKey:@"memberCount"];
             [teamDic setObject:[NSString stringWithFormat:@"%ld",team.level] forKey:@"memberLimit"];
             [teamDic setObject:[NSString stringWithFormat:@"%f", team.createTime ] forKey:@"createTime"];
-            [teamDic setObject:[NSString stringWithFormat:@"%d", team.notifyForNewMsg ] forKey:@"mute"];
+            [teamDic setObject:[NSString stringWithFormat:@"%d", team.notifyStateForNewMsg ] forKey:@"mute"];
             [teamDic setObject:[NSString stringWithFormat:@"%ld",team.joinMode] forKey:@"verifyType"];
             [teamDic setObject:[NSString stringWithFormat:@"%ld",team.beInviteMode] forKey:@"teamBeInviteMode"];
             [teamDic setObject:[NSString stringWithFormat:@"%ld",team.inviteMode] forKey:@"teamInviteMode"];
